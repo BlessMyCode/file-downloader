@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "npm i && npm run build",
     "build": "npm run lint && webpack",
 	"lint": "tslint src/**/*.ts"
   },
