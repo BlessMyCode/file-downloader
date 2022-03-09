@@ -1,26 +1,16 @@
-import minimist from "minimist";
-import https from "https";
+import getArgs from './lib/getArgs';
+import formatOutput from './lib/formatOutput';
 import fs from 'fs';
+import getAndWriteFile from './lib/getAndWriteFile';
+import Params from './interface/Params';
 
-interface Params {
-	url : string;
-	output_filename : string;
-	output_folder : string;
+
+try {
+	const {output_filename, output_folder, url} : Params = getArgs();
+	const output = formatOutput(output_folder, output_filename, url);
+	const fileSystem : fs.WriteStream = fs.createWriteStream(output);
+
+	getAndWriteFile(fileSystem, url);
+} catch (e){
+	console.log(e);
 }
-
-const params : Params = minimist<Params>(process.argv.slice(1)),
-	url : string | undefined = params['url'],
-	output_filename : string | undefined = params['output_filename'],
-	output_folder : string | undefined = params['output_folder'];
-console.log(params);
-
-const fileSystem = fs.createWriteStream(output_folder + "/" + output_filename);
-
-const httpRequest = https.get(url, (response : any) => {
-	console.log('response');
-	response.pipe(fileSystem);
-});
-
-
-	console.log('httpRequest');
-	console.log(httpRequest);
