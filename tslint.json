@@ -56,13 +56,6 @@
 		"interface-name": [
 		  true,
 		  "never-prefix"
-		],
-		"variable-name": [
-		  true,
-		  "check-format",
-		  "allow-leading-underscore",
-		  "require-const-for-all-caps",
-		  "ban-keywords"
 		]
 	},
     "rules": {
