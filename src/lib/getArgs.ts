@@ -1,15 +1,16 @@
 import Params from '../interface/Params';
 import minimist from "minimist";
+import EParams from "../Enum/EParams";
 
 const getArgs : () => Params = () => {
-	const params : Params = minimist<Params>(process.argv.slice(1)),
-	url : string | undefined = params['url'],
-	output_filename : string | undefined = params['output_filename'],
-	output_folder : string | undefined = params['output_folder'];
-	
-	if( !output_folder || !output_filename || !url )
+	const params : Params = minimist<Params>(process.argv.slice(1));
+	const url : string | undefined = params[EParams.url];
+	const outputFileName : string | undefined = params[EParams.file];
+	const outputFolder : string | undefined = params[EParams.folder];
+
+	if( !outputFolder || !outputFileName || !url )
 		throw new Error("Parametre manquat! veuillez fournir tous les parametres ! --output_filename, --url, --output_folder");
-	
+
 	return params;
 };
 

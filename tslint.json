@@ -3,9 +3,70 @@
     "extends": [
         "tslint:recommended"
     ],
-    "jsRules": {},
+    "jsRules": {
+		"triple-equals": [
+		  true,
+		  "allow-null-check"
+		],
+		"strict-comparisons": [
+		  true,
+		  {
+			"allow-object-equal-comparison": true,
+			"allow-string-order-comparison": false
+		  }
+		],
+		"variable-name": [
+		  true,
+		  "check-format",
+		  "allow-leading-underscore",
+		  "require-const-for-all-caps",
+		  "ban-keywords"
+		],
+		"no-conditional-assignment": true,
+		"whitespace": [
+		  true,
+		  "check-branch",
+		  "check-decl",
+		  "check-operator",
+		  "check-module",
+		  "check-separator",
+		  "check-rest-spread",
+		  "check-type",
+		  "check-typecast",
+		  "check-type-operator",
+		  "check-preblock"
+		],
+		"typedef-whitespace": [
+		  true,
+		  {
+			"call-signature": "nospace",
+			"index-signature": "nospace",
+			"parameter": "nospace",
+			"property-declaration": "nospace",
+			"variable-declaration": "nospace"
+		  },
+		  {
+			"call-signature": "onespace",
+			"index-signature": "onespace",
+			"parameter": "onespace",
+			"property-declaration": "onespace",
+			"variable-declaration": "onespace"
+		  }
+		],
+		"interface-name": [
+		  true,
+		  "never-prefix"
+		],
+		"variable-name": [
+		  true,
+		  "check-format",
+		  "allow-leading-underscore",
+		  "require-const-for-all-caps",
+		  "ban-keywords"
+		]
+	},
     "rules": {
-        "no-console": false
-    },
+		"no-console": false
+	},
     "rulesDirectory": []
 }
